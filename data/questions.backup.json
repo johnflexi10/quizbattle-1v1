@@ -1,0 +1,842 @@
+[
+  {
+    "id": 1,
+    "category": "História",
+    "difficulty": "médio",
+    "question": "Que país exigiu a renovação dos tratados de 1810 para reconhecer a independência do Brasil?",
+    "options": ["Alemanha", "Portugal", "Inglaterra", "França"],
+    "correct": 2
+  },
+  {
+    "id": 2,
+    "category": "História",
+    "difficulty": "médio",
+    "question": "Em que ano foi proclamada a República no Brasil?",
+    "options": ["1822", "1889", "1900", "1888"],
+    "correct": 1
+  },
+  {
+    "id": 3,
+    "category": "História",
+    "difficulty": "fácil",
+    "question": "Quem assinou a Lei Áurea que aboliu a escravidão no Brasil?",
+    "options": ["Dom Pedro II", "Princesa Isabel", "Joaquim Nabuco", "José do Patrocínio"],
+    "correct": 1
+  },
+  {
+    "id": 4,
+    "category": "História",
+    "difficulty": "difícil",
+    "question": "Qual foi o primeiro presidente do Brasil após a Proclamação da República?",
+    "options": ["Floriano Peixoto", "Prudente de Morais", "Deodoro da Fonseca", "Campos Sales"],
+    "correct": 2
+  },
+  {
+    "id": 5,
+    "category": "História",
+    "difficulty": "médio",
+    "question": "Em que ano ocorreu a Revolução Francesa?",
+    "options": ["1776", "1789", "1804", "1815"],
+    "correct": 1
+  },
+  {
+    "id": 6,
+    "category": "História",
+    "difficulty": "fácil",
+    "question": "Quem foi o primeiro homem a pisar na Lua?",
+    "options": ["Buzz Aldrin", "Yuri Gagarin", "Neil Armstrong", "John Glenn"],
+    "correct": 2
+  },
+  {
+    "id": 7,
+    "category": "História",
+    "difficulty": "médio",
+    "question": "Em que ano terminou a Segunda Guerra Mundial?",
+    "options": ["1943", "1944", "1945", "1946"],
+    "correct": 2
+  },
+  {
+    "id": 8,
+    "category": "História",
+    "difficulty": "difícil",
+    "question": "Qual imperador francês foi derrotado na Batalha de Waterloo?",
+    "options": ["Luís XVI", "Napoleão Bonaparte", "Carlos X", "Luís XVIII"],
+    "correct": 1
+  },
+  {
+    "id": 9,
+    "category": "História",
+    "difficulty": "médio",
+    "question": "Em que ano foi descoberto o Brasil por Pedro Álvares Cabral?",
+    "options": ["1492", "1498", "1500", "1502"],
+    "correct": 2
+  },
+  {
+    "id": 10,
+    "category": "História",
+    "difficulty": "fácil",
+    "question": "Qual era o nome da princesa que assinou a Lei Áurea?",
+    "options": ["Isabel", "Leopoldina", "Maria", "Carolina"],
+    "correct": 0
+  },
+  {
+    "id": 11,
+    "category": "História",
+    "difficulty": "médio",
+    "question": "A Guerra Fria foi um conflito entre quais duas potências?",
+    "options": ["EUA e China", "EUA e URSS", "Reino Unido e Alemanha", "França e Rússia"],
+    "correct": 1
+  },
+  {
+    "id": 12,
+    "category": "História",
+    "difficulty": "difícil",
+    "question": "Qual foi o nome do navio que afundou em 1912 ao colidir com um iceberg?",
+    "options": ["Olympic", "Britannic", "Titanic", "Lusitânia"],
+    "correct": 2
+  },
+  {
+    "id": 13,
+    "category": "História",
+    "difficulty": "médio",
+    "question": "Em que ano o Muro de Berlim foi derrubado?",
+    "options": ["1987", "1989", "1991", "1993"],
+    "correct": 1
+  },
+  {
+    "id": 14,
+    "category": "História",
+    "difficulty": "fácil",
+    "question": "Qual civilização construiu as pirâmides do Egito?",
+    "options": ["Grega", "Romana", "Egípcia", "Mesopotâmica"],
+    "correct": 2
+  },
+  {
+    "id": 15,
+    "category": "História",
+    "difficulty": "difícil",
+    "question": "Quem foi o líder da Revolução Cubana de 1959?",
+    "options": ["Che Guevara", "Fidel Castro", "Raúl Castro", "Batista"],
+    "correct": 1
+  },
+  {
+    "id": 16,
+    "category": "Geografia",
+    "difficulty": "fácil",
+    "question": "Qual é o maior país do mundo em extensão territorial?",
+    "options": ["China", "EUA", "Canadá", "Rússia"],
+    "correct": 3
+  },
+  {
+    "id": 17,
+    "category": "Geografia",
+    "difficulty": "fácil",
+    "question": "Qual é o rio mais longo do mundo?",
+    "options": ["Nilo", "Amazonas", "Mississippi", "Yangtzé"],
+    "correct": 0
+  },
+  {
+    "id": 18,
+    "category": "Geografia",
+    "difficulty": "médio",
+    "question": "Em qual continente está localizado o deserto do Saara?",
+    "options": ["Ásia", "América", "África", "Oceania"],
+    "correct": 2
+  },
+  {
+    "id": 19,
+    "category": "Geografia",
+    "difficulty": "médio",
+    "question": "Qual é a capital da Austrália?",
+    "options": ["Sydney", "Melbourne", "Brisbane", "Camberra"],
+    "correct": 3
+  },
+  {
+    "id": 20,
+    "category": "Geografia",
+    "difficulty": "fácil",
+    "question": "Qual é o oceano mais profundo do mundo?",
+    "options": ["Atlântico", "Índico", "Ártico", "Pacífico"],
+    "correct": 3
+  },
+  {
+    "id": 21,
+    "category": "Geografia",
+    "difficulty": "médio",
+    "question": "Qual é a montanha mais alta do mundo?",
+    "options": ["K2", "Monte Everest", "Monte Kilimanjaro", "Mont Blanc"],
+    "correct": 1
+  },
+  {
+    "id": 22,
+    "category": "Geografia",
+    "difficulty": "fácil",
+    "question": "Quantos estados tem o Brasil?",
+    "options": ["25", "26", "27", "28"],
+    "correct": 1
+  },
+  {
+    "id": 23,
+    "category": "Geografia",
+    "difficulty": "médio",
+    "question": "Qual país tem a maior população do mundo?",
+    "options": ["Índia", "China", "EUA", "Indonésia"],
+    "correct": 0
+  },
+  {
+    "id": 24,
+    "category": "Geografia",
+    "difficulty": "difícil",
+    "question": "Qual é o país menor do mundo?",
+    "options": ["Monaco", "San Marino", "Vaticano", "Liechtenstein"],
+    "correct": 2
+  },
+  {
+    "id": 25,
+    "category": "Geografia",
+    "difficulty": "médio",
+    "question": "O Rio Amazonas deságua em qual oceano?",
+    "options": ["Pacífico", "Índico", "Atlântico", "Ártico"],
+    "correct": 2
+  },
+  {
+    "id": 26,
+    "category": "Ciências",
+    "difficulty": "fácil",
+    "question": "Qual é o elemento mais abundante no universo?",
+    "options": ["Oxigênio", "Hidrogênio", "Carbono", "Hélio"],
+    "correct": 1
+  },
+  {
+    "id": 27,
+    "category": "Ciências",
+    "difficulty": "médio",
+    "question": "Quantos ossos tem o corpo humano adulto?",
+    "options": ["196", "206", "216", "226"],
+    "correct": 1
+  },
+  {
+    "id": 28,
+    "category": "Ciências",
+    "difficulty": "fácil",
+    "question": "Qual planeta é chamado de Planeta Vermelho?",
+    "options": ["Vênus", "Júpiter", "Marte", "Saturno"],
+    "correct": 2
+  },
+  {
+    "id": 29,
+    "category": "Ciências",
+    "difficulty": "médio",
+    "question": "Qual é a fórmula química da água?",
+    "options": ["HO", "H2O", "H3O", "OH2"],
+    "correct": 1
+  },
+  {
+    "id": 30,
+    "category": "Ciências",
+    "difficulty": "difícil",
+    "question": "Qual cientista formulou a Teoria da Relatividade?",
+    "options": ["Isaac Newton", "Nikola Tesla", "Albert Einstein", "Stephen Hawking"],
+    "correct": 2
+  },
+  {
+    "id": 31,
+    "category": "Ciências",
+    "difficulty": "médio",
+    "question": "Qual é a velocidade da luz no vácuo (aproximada)?",
+    "options": ["200.000 km/s", "300.000 km/s", "400.000 km/s", "500.000 km/s"],
+    "correct": 1
+  },
+  {
+    "id": 32,
+    "category": "Ciências",
+    "difficulty": "fácil",
+    "question": "Qual órgão é responsável pela filtragem do sangue nos seres humanos?",
+    "options": ["Fígado", "Pulmão", "Coração", "Rim"],
+    "correct": 3
+  },
+  {
+    "id": 33,
+    "category": "Ciências",
+    "difficulty": "médio",
+    "question": "Quantos planetas existem no Sistema Solar?",
+    "options": ["7", "8", "9", "10"],
+    "correct": 1
+  },
+  {
+    "id": 34,
+    "category": "Ciências",
+    "difficulty": "difícil",
+    "question": "Qual é o número atômico do carbono?",
+    "options": ["4", "6", "8", "12"],
+    "correct": 1
+  },
+  {
+    "id": 35,
+    "category": "Ciências",
+    "difficulty": "médio",
+    "question": "Em que escala de temperatura a água ferve a 212 graus?",
+    "options": ["Celsius", "Kelvin", "Fahrenheit", "Rankine"],
+    "correct": 2
+  },
+  {
+    "id": 36,
+    "category": "Tecnologia",
+    "difficulty": "fácil",
+    "question": "Qual empresa criou o sistema operacional Windows?",
+    "options": ["Apple", "Google", "Microsoft", "IBM"],
+    "correct": 2
+  },
+  {
+    "id": 37,
+    "category": "Tecnologia",
+    "difficulty": "fácil",
+    "question": "O que significa a sigla HTML?",
+    "options": ["HyperText Markup Language", "High Tech Modern Language", "Hyper Transfer Markup Link", "HyperText Master Language"],
+    "correct": 0
+  },
+  {
+    "id": 38,
+    "category": "Tecnologia",
+    "difficulty": "médio",
+    "question": "Em que ano foi lançado o primeiro iPhone?",
+    "options": ["2005", "2006", "2007", "2008"],
+    "correct": 2
+  },
+  {
+    "id": 39,
+    "category": "Tecnologia",
+    "difficulty": "médio",
+    "question": "Qual linguagem de programação é conhecida pela cobra como mascote?",
+    "options": ["Java", "Python", "Ruby", "Perl"],
+    "correct": 1
+  },
+  {
+    "id": 40,
+    "category": "Tecnologia",
+    "difficulty": "difícil",
+    "question": "Quem é considerado o pai da computação moderna?",
+    "options": ["Bill Gates", "Alan Turing", "Steve Jobs", "Linus Torvalds"],
+    "correct": 1
+  },
+  {
+    "id": 41,
+    "category": "Tecnologia",
+    "difficulty": "fácil",
+    "question": "O que é um 'bug' na programação?",
+    "options": ["Um inseto virtual", "Um erro no código", "Uma nova função", "Um tipo de vírus"],
+    "correct": 1
+  },
+  {
+    "id": 42,
+    "category": "Tecnologia",
+    "difficulty": "médio",
+    "question": "Qual empresa criou o sistema Android?",
+    "options": ["Apple", "Samsung", "Google", "Microsoft"],
+    "correct": 2
+  },
+  {
+    "id": 43,
+    "category": "Tecnologia",
+    "difficulty": "difícil",
+    "question": "O que significa a sigla CPU?",
+    "options": ["Central Processing Unit", "Computer Personal Unit", "Core Processing Utility", "Central Power Unit"],
+    "correct": 0
+  },
+  {
+    "id": 44,
+    "category": "Tecnologia",
+    "difficulty": "médio",
+    "question": "Qual linguagem é usada para estilizar páginas web?",
+    "options": ["HTML", "JavaScript", "CSS", "PHP"],
+    "correct": 2
+  },
+  {
+    "id": 45,
+    "category": "Tecnologia",
+    "difficulty": "fácil",
+    "question": "Qual rede social tem o pássaro azul como símbolo (antes do X)?",
+    "options": ["Facebook", "Instagram", "Twitter", "Snapchat"],
+    "correct": 2
+  },
+  {
+    "id": 46,
+    "category": "Esportes",
+    "difficulty": "fácil",
+    "question": "Quantos jogadores compõem um time de futebol em campo?",
+    "options": ["9", "10", "11", "12"],
+    "correct": 2
+  },
+  {
+    "id": 47,
+    "category": "Esportes",
+    "difficulty": "médio",
+    "question": "Em qual país foi realizada a Copa do Mundo de 2014?",
+    "options": ["Argentina", "Brasil", "Rússia", "Qatar"],
+    "correct": 1
+  },
+  {
+    "id": 48,
+    "category": "Esportes",
+    "difficulty": "fácil",
+    "question": "Quantos pontos vale uma enterrada no basquete?",
+    "options": ["1", "2", "3", "4"],
+    "correct": 1
+  },
+  {
+    "id": 49,
+    "category": "Esportes",
+    "difficulty": "médio",
+    "question": "Qual país mais vezes ganhou a Copa do Mundo de Futebol?",
+    "options": ["Alemanha", "Argentina", "Itália", "Brasil"],
+    "correct": 3
+  },
+  {
+    "id": 50,
+    "category": "Esportes",
+    "difficulty": "difícil",
+    "question": "Qual atleta brasileiro é considerado o maior de todos os tempos no automobilismo?",
+    "options": ["Rubens Barrichello", "Emerson Fittipaldi", "Ayrton Senna", "Nelson Piquet"],
+    "correct": 2
+  },
+  {
+    "id": 51,
+    "category": "Esportes",
+    "difficulty": "médio",
+    "question": "Quantos sets são necessários para vencer uma partida de tênis em Grand Slams masculinos?",
+    "options": ["2", "3", "4", "5"],
+    "correct": 1
+  },
+  {
+    "id": 52,
+    "category": "Esportes",
+    "difficulty": "fácil",
+    "question": "Qual esporte é jogado no Wimbledon?",
+    "options": ["Golf", "Tênis", "Cricket", "Rugby"],
+    "correct": 1
+  },
+  {
+    "id": 53,
+    "category": "Esportes",
+    "difficulty": "médio",
+    "question": "Em que cidade foram realizados os Jogos Olímpicos de 2016?",
+    "options": ["São Paulo", "Buenos Aires", "Rio de Janeiro", "Lima"],
+    "correct": 2
+  },
+  {
+    "id": 54,
+    "category": "Esportes",
+    "difficulty": "difícil",
+    "question": "Qual nadador ganhou mais medalhas de ouro olímpicas na história?",
+    "options": ["Ian Thorpe", "Ryan Lochte", "Michael Phelps", "Mark Spitz"],
+    "correct": 2
+  },
+  {
+    "id": 55,
+    "category": "Esportes",
+    "difficulty": "fácil",
+    "question": "Qual é o esporte nacional do Japão?",
+    "options": ["Karatê", "Judô", "Sumô", "Kendo"],
+    "correct": 2
+  },
+  {
+    "id": 56,
+    "category": "Entretenimento",
+    "difficulty": "fácil",
+    "question": "Qual é o personagem principal da saga Harry Potter?",
+    "options": ["Hermione Granger", "Harry Potter", "Ron Weasley", "Alvo Dumbledore"],
+    "correct": 1
+  },
+  {
+    "id": 57,
+    "category": "Entretenimento",
+    "difficulty": "fácil",
+    "question": "Qual filme ganhou o Oscar de Melhor Filme em 1998 (edição 1997)?",
+    "options": ["Gladiador", "Titanic", "Shakespeare Apaixonado", "A Lista de Schindler"],
+    "correct": 1
+  },
+  {
+    "id": 58,
+    "category": "Entretenimento",
+    "difficulty": "médio",
+    "question": "Quem interpreta o Homem de Ferro no MCU?",
+    "options": ["Chris Evans", "Chris Hemsworth", "Robert Downey Jr.", "Mark Ruffalo"],
+    "correct": 2
+  },
+  {
+    "id": 59,
+    "category": "Entretenimento",
+    "difficulty": "médio",
+    "question": "Qual banda britânica ficou conhecida como 'Os Fab Four'?",
+    "options": ["Rolling Stones", "The Beatles", "Led Zeppelin", "The Who"],
+    "correct": 1
+  },
+  {
+    "id": 60,
+    "category": "Entretenimento",
+    "difficulty": "fácil",
+    "question": "Qual é o nome da animação da Pixar sobre um peixe que é perdido pelo pai?",
+    "options": ["Shark Tale", "Procurando Nemo", "A Pequena Sereia", "Procurando Dory"],
+    "correct": 1
+  },
+  {
+    "id": 61,
+    "category": "Entretenimento",
+    "difficulty": "difícil",
+    "question": "Quem escreveu a obra 'Dom Casmurro'?",
+    "options": ["José de Alencar", "Graciliano Ramos", "Machado de Assis", "Euclides da Cunha"],
+    "correct": 2
+  },
+  {
+    "id": 62,
+    "category": "Entretenimento",
+    "difficulty": "médio",
+    "question": "Qual série da Netflix segue uma adolescente em uma cidade chamada Hawkins?",
+    "options": ["Dark", "Stranger Things", "The OA", "Locke & Key"],
+    "correct": 1
+  },
+  {
+    "id": 63,
+    "category": "Entretenimento",
+    "difficulty": "fácil",
+    "question": "Qual personagem da Disney é conhecido por seus enormes orelhas?",
+    "options": ["Mickey Mouse", "Donald Duck", "Dumbo", "Pluto"],
+    "correct": 2
+  },
+  {
+    "id": 64,
+    "category": "Entretenimento",
+    "difficulty": "médio",
+    "question": "Qual cantor brasileiro ficou conhecido como 'Rei do Baile'?",
+    "options": ["Ivete Sangalo", "Chiclete com Banana", "Claudinho", "MC Hammer"],
+    "correct": 2
+  },
+  {
+    "id": 65,
+    "category": "Entretenimento",
+    "difficulty": "difícil",
+    "question": "Em qual ano foi lançado o primeiro Star Wars (Episódio IV)?",
+    "options": ["1975", "1977", "1979", "1981"],
+    "correct": 1
+  },
+  {
+    "id": 66,
+    "category": "Cultura Geral",
+    "difficulty": "fácil",
+    "question": "Qual é a cor do céu em um dia claro?",
+    "options": ["Verde", "Azul", "Roxo", "Cinza"],
+    "correct": 1
+  },
+  {
+    "id": 67,
+    "category": "Cultura Geral",
+    "difficulty": "médio",
+    "question": "Quantas cores tem o arco-íris?",
+    "options": ["5", "6", "7", "8"],
+    "correct": 2
+  },
+  {
+    "id": 68,
+    "category": "Cultura Geral",
+    "difficulty": "médio",
+    "question": "Qual é o idioma mais falado no mundo?",
+    "options": ["Espanhol", "Inglês", "Chinês Mandarim", "Hindi"],
+    "correct": 2
+  },
+  {
+    "id": 69,
+    "category": "Cultura Geral",
+    "difficulty": "fácil",
+    "question": "Quantas horas tem um dia?",
+    "options": ["12", "20", "24", "48"],
+    "correct": 2
+  },
+  {
+    "id": 70,
+    "category": "Cultura Geral",
+    "difficulty": "médio",
+    "question": "Qual é o instrumento musical de sopro mais grave?",
+    "options": ["Tuba", "Trompete", "Trombone", "Saxofone"],
+    "correct": 0
+  },
+  {
+    "id": 71,
+    "category": "Cultura Geral",
+    "difficulty": "difícil",
+    "question": "Qual é o símbolo químico do ouro?",
+    "options": ["Or", "Go", "Au", "Ag"],
+    "correct": 2
+  },
+  {
+    "id": 72,
+    "category": "Cultura Geral",
+    "difficulty": "fácil",
+    "question": "Quantos dias tem um ano bissexto?",
+    "options": ["364", "365", "366", "367"],
+    "correct": 2
+  },
+  {
+    "id": 73,
+    "category": "Cultura Geral",
+    "difficulty": "médio",
+    "question": "Qual é o maior animal terrestre?",
+    "options": ["Hipopótamo", "Rinoceronte", "Girafa", "Elefante Africano"],
+    "correct": 3
+  },
+  {
+    "id": 74,
+    "category": "Cultura Geral",
+    "difficulty": "médio",
+    "question": "Qual país inventou a pizza?",
+    "options": ["Grécia", "Espanha", "Itália", "França"],
+    "correct": 2
+  },
+  {
+    "id": 75,
+    "category": "Cultura Geral",
+    "difficulty": "difícil",
+    "question": "Qual é a moeda oficial do Japão?",
+    "options": ["Won", "Yuan", "Iene", "Baht"],
+    "correct": 2
+  },
+  {
+    "id": 76,
+    "category": "Geografia",
+    "difficulty": "médio",
+    "question": "Qual é a capital da Austrália?",
+    "options": ["Camberra", "Sydney", "Melbourne", "Brisbane"],
+    "correct": 0
+  },
+  {
+    "id": 77,
+    "category": "Geografia",
+    "difficulty": "difícil",
+    "question": "Qual é o maior arquipélago do mundo em quantidade de ilhas?",
+    "options": ["Indonésia", "Filipinas", "Japão", "Finlândia"],
+    "correct": 0
+  },
+  {
+    "id": 78,
+    "category": "Geografia",
+    "difficulty": "fácil",
+    "question": "Em que continente fica localizado o deserto do Saara?",
+    "options": ["Ásia", "África", "Oceania", "América do Sul"],
+    "correct": 1
+  },
+  {
+    "id": 79,
+    "category": "Geografia",
+    "difficulty": "médio",
+    "question": "Qual é atualmente o país mais populoso do mundo?",
+    "options": ["Índia", "China", "Estados Unidos", "Indonésia"],
+    "correct": 0
+  },
+  {
+    "id": 80,
+    "category": "Geografia",
+    "difficulty": "fácil",
+    "question": "Qual é o menor país do mundo em extensão territorial?",
+    "options": ["Mônaco", "Vaticano", "Nauru", "San Marino"],
+    "correct": 1
+  },
+  {
+    "id": 81,
+    "category": "Ciências",
+    "difficulty": "fácil",
+    "question": "Qual gás é vital para a respiração humana?",
+    "options": ["Gás Carbônico", "Oxigênio", "Nitrogênio", "Hidrogênio"],
+    "correct": 1
+  },
+  {
+    "id": 82,
+    "category": "Ciências",
+    "difficulty": "médio",
+    "question": "Qual é a velocidade aproximada da luz no vácuo?",
+    "options": ["300.000 km/s", "150.000 km/s", "1.000.000 km/s", "30.000 km/s"],
+    "correct": 0
+  },
+  {
+    "id": 83,
+    "category": "Ciências",
+    "difficulty": "fácil",
+    "question": "Qual órgão do corpo humano é responsável por filtrar o sangue?",
+    "options": ["Coração", "Fígado", "Rins", "Pulmão"],
+    "correct": 2
+  },
+  {
+    "id": 84,
+    "category": "Ciências",
+    "difficulty": "médio",
+    "question": "Quem formulou a Teoria da Relatividade?",
+    "options": ["Isaac Newton", "Albert Einstein", "Nikola Tesla", "Galileu Galilei"],
+    "correct": 1
+  },
+  {
+    "id": 85,
+    "category": "Ciências",
+    "difficulty": "difícil",
+    "question": "Qual é o planeta com as maiores temperaturas médias no Sistema Solar?",
+    "options": ["Mercúrio", "Vênus", "Marte", "Júpiter"],
+    "correct": 1
+  },
+  {
+    "id": 86,
+    "category": "Tecnologia",
+    "difficulty": "médio",
+    "question": "O que significa a sigla 'HTTP' na internet?",
+    "options": ["HyperText Transfer Protocol", "High Transmission Text Process", "Hyperlink Total Protocol", "Home Tool Transfer Package"],
+    "correct": 0
+  },
+  {
+    "id": 87,
+    "category": "Tecnologia",
+    "difficulty": "médio",
+    "question": "Quem criou o núcleo do sistema operacional Linux?",
+    "options": ["Steve Jobs", "Linus Torvalds", "Bill Gates", "Alan Turing"],
+    "correct": 1
+  },
+  {
+    "id": 88,
+    "category": "Tecnologia",
+    "difficulty": "fácil",
+    "question": "Em que ano foi lançado o primeiro smartphone iPhone pela Apple?",
+    "options": ["2005", "2007", "2009", "2010"],
+    "correct": 1
+  },
+  {
+    "id": 89,
+    "category": "Tecnologia",
+    "difficulty": "fácil",
+    "question": "Qual empresa desenvolveu o sistema operacional Android para celulares?",
+    "options": ["Google", "Microsoft", "Apple", "IBM"],
+    "correct": 0
+  },
+  {
+    "id": 90,
+    "category": "Tecnologia",
+    "difficulty": "fácil",
+    "question": "Qual linguagem de programação é primordial para a interatividade nos navegadores web?",
+    "options": ["Python", "C++", "JavaScript", "Swift"],
+    "correct": 2
+  },
+  {
+    "id": 91,
+    "category": "Esportes",
+    "difficulty": "fácil",
+    "question": "Quantos jogadores de cada time entram em quadra no voleibol tradicional?",
+    "options": ["5", "6", "7", "8"],
+    "correct": 1
+  },
+  {
+    "id": 92,
+    "category": "Esportes",
+    "difficulty": "fácil",
+    "question": "Qual atleta detém o recorde mundial dos 100m rasos com o tempo de 9,58 segundos?",
+    "options": ["Carl Lewis", "Usain Bolt", "Justin Gatlin", "Tyson Gay"],
+    "correct": 1
+  },
+  {
+    "id": 93,
+    "category": "Esportes",
+    "difficulty": "difícil",
+    "question": "Qual país sediou e venceu a primeira Copa do Mundo de Futebol em 1930?",
+    "options": ["Brasil", "Uruguai", "Argentina", "Itália"],
+    "correct": 1
+  },
+  {
+    "id": 94,
+    "category": "Esportes",
+    "difficulty": "médio",
+    "question": "No basquete, quantos pontos vale um arremesso convertido de trás da linha de três pontos?",
+    "options": ["2", "3", "4", "5"],
+    "correct": 1
+  },
+  {
+    "id": 95,
+    "category": "Esportes",
+    "difficulty": "fácil",
+    "question": "Qual seleção masculina de futebol possui 5 títulos da Copa do Mundo?",
+    "options": ["Alemanha", "Itália", "Brasil", "Argentina"],
+    "correct": 2
+  },
+  {
+    "id": 96,
+    "category": "Entretenimento",
+    "difficulty": "fácil",
+    "question": "Quem dirigiu o clássico cinematográfico 'Titanic' lançado em 1997?",
+    "options": ["Steven Spielberg", "James Cameron", "Christopher Nolan", "Quentin Tarantino"],
+    "correct": 1
+  },
+  {
+    "id": 97,
+    "category": "Entretenimento",
+    "difficulty": "fácil",
+    "question": "Qual famoso super-herói dos quadrinhos é chamado de 'O Cavaleiro das Trevas'?",
+    "options": ["Superman", "Homem de Ferro", "Batman", "Demolidor"],
+    "correct": 2
+  },
+  {
+    "id": 98,
+    "category": "Entretenimento",
+    "difficulty": "fácil",
+    "question": "Na série Harry Potter, para qual casa de Hogwarts o protagonista é designado?",
+    "options": ["Sonserina", "Corvinal", "Lufa-Lufa", "Grifinória"],
+    "correct": 3
+  },
+  {
+    "id": 99,
+    "category": "Entretenimento",
+    "difficulty": "médio",
+    "question": "Qual famosa série da Netflix popularizou no mundo a canção 'Bella Ciao'?",
+    "options": ["Stranger Things", "La Casa de Papel", "Dark", "Elite"],
+    "correct": 1
+  },
+  {
+    "id": 100,
+    "category": "Entretenimento",
+    "difficulty": "médio",
+    "question": "Qual icônica banda britânica de rock gravou a canção 'Bohemian Rhapsody'?",
+    "options": ["The Beatles", "Led Zeppelin", "Queen", "Pink Floyd"],
+    "correct": 2
+  },
+  {
+    "id": 101,
+    "category": "Cultura Geral",
+    "difficulty": "fácil",
+    "question": "Qual pintor renascentista é o autor da célebre obra 'Mona Lisa'?",
+    "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
+    "correct": 1
+  },
+  {
+    "id": 102,
+    "category": "Cultura Geral",
+    "difficulty": "fácil",
+    "question": "Quantos estados compõem a República Federativa do Brasil, além do Distrito Federal?",
+    "options": ["25", "26", "27", "28"],
+    "correct": 1
+  },
+  {
+    "id": 103,
+    "category": "Cultura Geral",
+    "difficulty": "fácil",
+    "question": "Qual instrumento acústico ou elétrico tradicionalmente possui teclas brancas e pretas?",
+    "options": ["Violão", "Saxofone", "Piano", "Trompete"],
+    "correct": 2
+  },
+  {
+    "id": 104,
+    "category": "Cultura Geral",
+    "difficulty": "difícil",
+    "question": "Qual idioma possui o maior número de falantes nativos (língua materna) no mundo?",
+    "options": ["Inglês", "Espanhol", "Mandarim", "Hindi"],
+    "correct": 2
+  },
+  {
+    "id": 105,
+    "category": "Cultura Geral",
+    "difficulty": "fácil",
+    "question": "Qual é a montanha mais alta do planeta Terra em relação ao nível do mar?",
+    "options": ["K2", "Monte Everest", "Kilimanjaro", "Aconcágua"],
+    "correct": 1
+  }
+]

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>QuizBattle — 1v1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3.2">
+</head>
+<body>
+
+  <!-- ═══════════════ TELA: MENU PRINCIPAL ═══════════════ -->
+  <div id="screen-menu" class="screen active">
+    <!-- Ações de Topo do Menu: Som e Tela Cheia -->
+    <div class="menu-top-actions">
+      <button id="btnSoundToggle" class="btn-top-action btn-sound-float" onclick="App.toggleSound()" title="Ativar/Desativar Som">
+        <span class="sound-icon" id="btnSoundIcon">🔊</span>
+        <span class="btn-action-label" id="btnSoundLabel">Som</span>
+      </button>
+      <button id="btnRotateScreen" class="btn-top-action btn-rotate-float" onclick="App.toggleFullscreen()" title="Alternar Tela Cheia">
+        <span class="rotate-icon" id="btnRotateIcon">⛶</span>
+        <span class="rotate-label" id="btnRotateLabel">Tela Cheia</span>
+      </button>
+    </div>
+    <div class="menu-bg">
+      <div class="floating-star s1">⭐</div>
+      <div class="floating-star s2">✨</div>
+      <div class="floating-star s3">🌟</div>
+      <div class="floating-star s4">⭐</div>
+    </div>
+    <div class="menu-content">
+      <div class="logo-section">
+        <div class="logo-icon">🎮</div>
+        <h1 class="logo-title">Quiz<span>Battle</span></h1>
+        <p class="logo-sub">Duelo de conhecimentos 1v1 em tempo real</p>
+      </div>
+
+      <!-- Perfil do Jogador (Avatar Clicável + Nome) -->
+      <div class="player-card-input">
+        <button type="button" class="avatar-current-btn" id="currentAvatarBtn" onclick="App.showAvatarModal()" title="Clique para trocar de avatar">
+          <span id="currentAvatarIcon">🧙</span>
+          <span class="avatar-badge-edit">✏️</span>
+        </button>
+
+        <div class="name-input-wrap">
+          <label class="name-label" for="playerName">Seu Nome</label>
+          <input type="text" id="playerName" class="player-text-input" placeholder="Digite seu nome..." maxlength="18">
+        </div>
+      </div>
+
+      <!-- Estatísticas do Jogador -->
+      <div class="player-stats-bar" id="playerStatsBar">
+        <div class="stat-item"><span class="stat-icon">🏆</span> <strong id="statWins">0</strong> vitórias</div>
+        <div class="stat-sep">•</div>
+        <div class="stat-item"><span class="stat-icon">⚔️</span> <strong id="statMatches">0</strong> duelos</div>
+        <div class="stat-sep">•</div>
+        <div class="stat-item"><span class="stat-icon">🔥</span> <strong id="statStreak">0</strong> combo</div>
+      </div>
+
+      <!-- Ação Principal em Destaque -->
+      <button class="btn-hero btn-pulse" onclick="App.showCreateRoomModal()">
+        <span class="btn-icon">⚡</span>
+        <span class="btn-text">
+          <strong>Criar Sala 1v1</strong>
+          <small>Personalize regras, tempo e categorias</small>
+        </span>
+      </button>
+
+      <!-- Grade Limpa de Modos de Jogo -->
+      <div class="menu-actions-grid">
+        <button class="menu-card-btn btn-secondary-clean" onclick="App.showJoinRoom()">
+          <span class="card-icon">🔑</span>
+          <span class="card-title">Código</span>
+          <span class="card-sub">Entrar com PIN</span>
+        </button>
+
+        <button class="menu-card-btn btn-browse-clean" onclick="App.showPublicRoomsModal()">
+          <span class="card-icon">🌐</span>
+          <span class="card-title">Salas</span>
+          <span class="card-sub">Partidas abertas</span>
+        </button>
+
+        <button class="menu-card-btn btn-quick-clean" onclick="App.startMatchmaking()">
+          <span class="card-icon">🚀</span>
+          <span class="card-title">Rápido</span>
+          <span class="card-sub">Buscar oponente</span>
+        </button>
+
+        <button class="menu-card-btn btn-bot-clean" onclick="App.showBotModal()">
+          <span class="card-icon">🤖</span>
+          <span class="card-title">Treino Bot</span>
+          <span class="card-sub">Praticar solo</span>
+        </button>
+      </div>
+
+      <!-- Botão Secundário para Dispositivos -->
+      <div class="menu-footer-actions">
+        <button class="btn-device-pill" onclick="App.showDeviceModal()">
+          <span>📱 Conectar Celular / QR Code</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MODAL: CONFIGURAR SALA 1V1 ═══════════════ -->
+  <div id="modal-create-room" class="modal-overlay hidden">
+    <div class="modal-box modal-box-large">
+      <h2 class="modal-title">⚙️ Configurar Sala 1v1</h2>
+      <p class="modal-desc">Personalize as regras do duelo antes de jogar</p>
+
+      <div class="settings-form">
+        <!-- Nome da Sala -->
+        <div class="settings-group">
+          <label class="settings-label">Nome da Sala (opcional)</label>
+          <input type="text" id="cfgRoomName" class="settings-input" placeholder="Ex: Duelo dos Mestres" maxlength="25">
+        </div>
+
+        <!-- Número de Perguntas -->
+        <div class="settings-group">
+          <label class="settings-label">Número de Perguntas / Rodadas</label>
+          <div class="pill-selector" id="roundsSelector">
+            <button type="button" class="pill-btn" data-val="5">5</button>
+            <button type="button" class="pill-btn active" data-val="10">10</button>
+            <button type="button" class="pill-btn" data-val="15">15</button>
+            <button type="button" class="pill-btn" data-val="20">20</button>
+          </div>
+        </div>
+
+        <!-- Tempo por Pergunta -->
+        <div class="settings-group">
+          <label class="settings-label">Tempo por Pergunta</label>
+          <div class="pill-selector" id="timeSelector">
+            <button type="button" class="pill-btn" data-val="10">⚡ 10s</button>
+            <button type="button" class="pill-btn active" data-val="15">⏱️ 15s</button>
+            <button type="button" class="pill-btn" data-val="20">🧘 20s</button>
+            <button type="button" class="pill-btn" data-val="30">🧠 30s</button>
+          </div>
+        </div>
+
+        <!-- Dificuldade -->
+        <div class="settings-group">
+          <label class="settings-label">Dificuldade das Perguntas</label>
+          <div class="pill-selector" id="diffSelector">
+            <button type="button" class="pill-btn active" data-val="todas">🎲 Todas</button>
+            <button type="button" class="pill-btn" data-val="fácil">😊 Fácil</button>
+            <button type="button" class="pill-btn" data-val="médio">🧠 Médio</button>
+            <button type="button" class="pill-btn" data-val="difícil">💀 Difícil</button>
+          </div>
+        </div>
+
+        <!-- Categorias -->
+        <div class="settings-group">
+          <label class="settings-label">Categorias Temáticas</label>
+          <div class="category-mode-selector">
+            <button type="button" class="pill-btn active" id="btnCatModeAll" onclick="App.setCategoryMode('all')">
+              📚 Todas as Categorias
+            </button>
+            <button type="button" class="pill-btn" id="btnCatModeCustom" onclick="App.setCategoryMode('custom')">
+              🎯 Escolher Específicas (<span id="catSelectedCount">13</span>)
+            </button>
+          </div>
+
+          <!-- Caixa Expansível com Grade e Rolagem Interna -->
+          <div class="categories-custom-box hidden" id="categoriesCustomBox">
+            <div class="categories-box-header">
+              <span class="categories-hint">Selecione as categorias desejadas:</span>
+              <div class="categories-quick-actions">
+                <button type="button" class="btn-link" onclick="App.selectAllCategories(true)">Marcar Todas</button>
+                <span class="action-sep">•</span>
+                <button type="button" class="btn-link" onclick="App.selectAllCategories(false)">Limpar</button>
+              </div>
+            </div>
+            <div class="categories-scroll-area" id="categoriesGrid">
+              <button type="button" class="cat-chip active" data-cat="Cotidiano & Casa">🏠 Cotidiano & Casa</button>
+              <button type="button" class="cat-chip active" data-cat="Comida & Culinária">🍳 Comida & Culinária</button>
+              <button type="button" class="cat-chip active" data-cat="Saúde & Bem-Estar">🩺 Saúde & Bem-Estar</button>
+              <button type="button" class="cat-chip active" data-cat="Tecnologia & Celular">📱 Tecnologia & Celular</button>
+              <button type="button" class="cat-chip active" data-cat="Curiosidades & Costumes">💡 Curiosidades & Costumes</button>
+              <button type="button" class="cat-chip active" data-cat="Trabalho & Dinheiro">💳 Trabalho & Dinheiro</button>
+              <button type="button" class="cat-chip active" data-cat="Trânsito & Cidade">🚗 Trânsito & Cidade</button>
+              <button type="button" class="cat-chip active" data-cat="Geografia">🌍 Geografia</button>
+              <button type="button" class="cat-chip active" data-cat="História">🏛️ História</button>
+              <button type="button" class="cat-chip active" data-cat="Português">✍️ Português</button>
+              <button type="button" class="cat-chip active" data-cat="Matemática">🔢 Matemática</button>
+              <button type="button" class="cat-chip active" data-cat="O Que É, O Que É?">🧩 O Que É, O Que É?</button>
+              <button type="button" class="cat-chip active" data-cat="Variados & Pop">🎭 Variados & Pop</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visibilidade da Sala -->
+        <div class="settings-group">
+          <label class="checkbox-wrapper">
+            <input type="checkbox" id="cfgIsPublic" checked>
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-text">
+              <strong>🌐 Sala Pública</strong>
+              <small>Aparece na lista de salas abertas para outros jogarem com você</small>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="modal-buttons">
+        <button class="btn-primary" onclick="App.createCustomRoom()">Criar Sala e Abrir Lobby</button>
+        <button class="btn-ghost" onclick="App.closeModal('modal-create-room')">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MODAL: SALAS ABERTAS / NAVEGADOR ═══════════════ -->
+  <div id="modal-public-rooms" class="modal-overlay hidden">
+    <div class="modal-box modal-box-large">
+      <div class="modal-header-with-action">
+        <div>
+          <h2 class="modal-title">🌐 Salas Disponíveis</h2>
+          <p class="modal-desc">Partidas 1v1 aguardando um adversário</p>
+        </div>
+        <button class="btn-refresh" onclick="App.refreshPublicRooms()" title="Atualizar lista">🔄</button>
+      </div>
+
+      <div class="public-rooms-list" id="publicRoomsList">
+        <!-- Injetado dinamicamente -->
+      </div>
+
+      <div class="modal-buttons" style="margin-top:16px;">
+        <button class="btn-ghost" onclick="App.closeModal('modal-public-rooms')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MODAL: CONECTAR CELULAR / TABLET ═══════════════ -->
+  <div id="modal-device" class="modal-overlay hidden">
+    <div class="modal-box modal-box-device">
+      <h2 class="modal-title">📱 Jogar no Celular ou Tablet</h2>
+      <p class="modal-desc">Conecte qualquer celular ou tablet que esteja na mesma rede Wi-Fi!</p>
+
+      <div class="device-modal-content">
+        <div class="qr-container">
+          <img id="deviceQrCode" class="device-qr-image" src="" alt="QR Code para Celular" />
+          <p class="qr-instruction">Aponte a câmera do seu celular para o QR Code acima</p>
+        </div>
+
+        <div class="device-url-box">
+          <label class="input-label" style="text-align:center;">Ou abra este endereço no celular:</label>
+          <div class="device-url-display" id="deviceUrlDisplay">http://localhost:3000</div>
+          <button class="btn-copy-url" onclick="App.copyNetworkUrl()">📋 Copiar Link de Rede</button>
+        </div>
+      </div>
+
+      <div class="modal-buttons" style="margin-top:16px;">
+        <button class="btn-ghost" onclick="App.closeModal('modal-device')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MODAL: ESCOLHER AVATAR ═══════════════ -->
+  <div id="modal-avatar" class="modal-overlay hidden">
+    <div class="modal-box modal-box-avatar">
+      <h2 class="modal-title">🎭 Escolha seu Avatar</h2>
+      <p class="modal-desc">Toque no personagem que melhor te representa no duelo</p>
+      <div class="avatar-modal-grid" id="avatarSelector">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+      <div class="modal-buttons" style="margin-top:16px;">
+        <button class="btn-ghost" onclick="App.closeModal('modal-avatar')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MODAL: CONFIRMAR SAIR DA PARTIDA ═══════════════ -->
+  <div id="modal-quit-match" class="modal-overlay hidden">
+    <div class="modal-box" style="max-width:360px; text-align:center;">
+      <div style="font-size:48px; margin-bottom:12px;">🚪</div>
+      <h2 class="modal-title">Sair da Partida?</h2>
+      <p class="modal-desc">Você abandonará a partida atual e voltará para o menu principal.</p>
+      <div class="modal-buttons" style="margin-top:20px;">
+        <button class="btn-primary" style="background:#ff3b30;" onclick="App.quitMatchConfirmed()">Sim, Sair</button>
+        <button class="btn-ghost" onclick="App.closeModal('modal-quit-match')">Continuar Jogando</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MODAL: ENTRAR COM CÓDIGO ═══════════════ -->
+  <div id="modal-join" class="modal-overlay hidden">
+    <div class="modal-box">
+      <h2 class="modal-title">🔑 Entrar em Sala</h2>
+      <p class="modal-desc">Digite o código de 4 letras da sala</p>
+      <input type="text" id="roomCodeInput" class="code-input" placeholder="XXXX" maxlength="4">
+      <div class="modal-buttons">
+        <button class="btn-primary" onclick="App.joinRoom()">Entrar</button>
+        <button class="btn-ghost" onclick="App.closeModal('modal-join')">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ MODAL: BOT DIFICULDADE ═══════════════ -->
+  <div id="modal-bot" class="modal-overlay hidden">
+    <div class="modal-box">
+      <h2 class="modal-title">🤖 Jogar vs Bot</h2>
+      <p class="modal-desc">Escolha a dificuldade do adversário</p>
+      <div class="difficulty-grid">
+        <button class="diff-btn diff-easy"   onclick="App.startBotGame('fácil')">
+          <span class="diff-icon">😊</span>
+          <span class="diff-name">Fácil</span>
+          <span class="diff-desc">45% de acertos · lento</span>
+        </button>
+        <button class="diff-btn diff-medium" onclick="App.startBotGame('médio')">
+          <span class="diff-icon">🧠</span>
+          <span class="diff-name">Médio</span>
+          <span class="diff-desc">65% de acertos · moderado</span>
+        </button>
+        <button class="diff-btn diff-hard"   onclick="App.startBotGame('difícil')">
+          <span class="diff-icon">💀</span>
+          <span class="diff-name">Difícil</span>
+          <span class="diff-desc">85% de acertos · rápido</span>
+        </button>
+      </div>
+      <button class="btn-ghost" style="margin-top:12px" onclick="App.closeModal('modal-bot')">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TELA: SALA DE ESPERA / LOBBY ═══════════════ -->
+  <div id="screen-lobby" class="screen">
+    <div class="lobby-bg"></div>
+    <div class="lobby-content">
+      <div class="lobby-header">
+        <div class="lobby-room-badge" id="lobbyRoomBadge">🌐 Sala Pública</div>
+        <h2 class="lobby-title" id="lobbyRoomTitle">🎮 Sala de Espera</h2>
+
+        <div class="room-code-display">
+          <span class="room-code-label">Código:</span>
+          <div class="room-code-value" id="lobbyRoomCode">----</div>
+          <button class="btn-copy" onclick="App.copyRoomCode()" title="Copiar código">📋</button>
+          <button class="btn-copy-link" onclick="App.copyInviteLink()" title="Copiar Link de Convite">🔗 Convite</button>
+          <button class="btn-whatsapp" onclick="App.shareWhatsApp()" title="Convidar no WhatsApp">💬 WhatsApp</button>
+        </div>
+      </div>
+
+      <!-- Resumo das Configurações da Sala -->
+      <div class="lobby-settings-card" id="lobbySettingsCard">
+        <div class="settings-pill" id="lobbyPillRounds">🏆 10 Rodadas</div>
+        <div class="settings-pill" id="lobbyPillTime">⏱️ 15s / perg.</div>
+        <div class="settings-pill" id="lobbyPillDiff">🎯 Dificuldade: Todas</div>
+        <div class="settings-pill" id="lobbyPillCategories">📚 Todas Categorias</div>
+      </div>
+
+      <!-- Cartões dos Jogadores no Duelo 1v1 -->
+      <div class="lobby-players">
+        <div class="lobby-player" id="lobbyPlayer1">
+          <div class="lobby-host-crown" id="crownP1">👑 Host</div>
+          <div class="lobby-avatar" id="lobbyAvatar1">?</div>
+          <div class="lobby-player-name" id="lobbyName1">Aguardando...</div>
+          <div class="lobby-status ready" id="lobbyStatus1">✓ Pronto</div>
+        </div>
+
+        <div class="lobby-vs">VS</div>
+
+        <div class="lobby-player" id="lobbyPlayer2">
+          <div class="lobby-host-crown hidden" id="crownP2">👑 Host</div>
+          <div class="lobby-avatar waiting-pulse" id="lobbyAvatar2">?</div>
+          <div class="lobby-player-name" id="lobbyName2">Aguardando...</div>
+          <div class="lobby-status waiting" id="lobbyStatus2">⏳ Esperando</div>
+        </div>
+      </div>
+
+      <div class="lobby-waiting">
+        <div class="waiting-dots" id="lobbyWaitingDots">
+          <span></span><span></span><span></span>
+        </div>
+        <p id="lobbyMessage">Aguardando o segundo jogador entrar...</p>
+      </div>
+
+      <!-- Ações do Lobby -->
+      <div class="lobby-actions">
+        <button class="btn-primary btn-lobby-start hidden" id="btnHostStart" onclick="App.startMatchAsHost()">
+          🚀 Iniciar Batalha 1v1
+        </button>
+        <button class="btn-secondary btn-lobby-ready hidden" id="btnToggleReady" onclick="App.toggleReady()">
+          ✓ Estou Pronto!
+        </button>
+        <button class="btn-ghost lobby-back" onclick="App.leaveRoom()">← Sair da Sala</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TELA: MATCHMAKING ═══════════════ -->
+  <div id="screen-matchmaking" class="screen">
+    <div class="lobby-bg"></div>
+    <div class="matchmaking-content">
+      <div class="matchmaking-icon">⚡</div>
+      <h2 class="matchmaking-title">Procurando adversário...</h2>
+      <div class="radar-animation">
+        <div class="radar-ring r1"></div>
+        <div class="radar-ring r2"></div>
+        <div class="radar-ring r3"></div>
+        <div class="radar-center">🔍</div>
+      </div>
+      <p class="matchmaking-sub">Conectando você com um jogador online</p>
+      <button class="btn-ghost" onclick="App.cancelMatchmaking()">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TELA: INICIANDO JOGO ═══════════════ -->
+  <div id="screen-starting" class="screen">
+    <div class="lobby-bg"></div>
+    <div class="starting-content">
+      <div class="vs-display">
+        <div class="vs-player" id="startP1">
+          <div class="vs-avatar" id="startAvatar1">🧙</div>
+          <div class="vs-name" id="startName1">Jogador 1</div>
+        </div>
+        <div class="vs-middle">
+          <div class="vs-text">VS</div>
+          <div class="countdown" id="startCountdown">3</div>
+        </div>
+        <div class="vs-player" id="startP2">
+          <div class="vs-avatar" id="startAvatar2">🦸</div>
+          <div class="vs-name" id="startName2">Jogador 2</div>
+        </div>
+      </div>
+      <p class="starting-msg">A batalha começa em breve!</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TELA: JOGO ═══════════════ -->
+  <div id="screen-game" class="screen">
+    <!-- Header com Jogadores e Cronômetro -->
+    <div class="game-header">
+      <div class="player-panel player-left" id="panelP1">
+        <div class="player-avatar-wrap">
+          <div class="player-avatar" id="gameAvatar1">🧙</div>
+          <div class="answered-badge hidden" id="badge1">✓</div>
+        </div>
+        <div class="player-info">
+          <div class="player-name" id="gameName1">Jogador 1</div>
+          <div class="player-score" id="gameScore1">0</div>
+        </div>
+      </div>
+
+      <div class="timer-wrap">
+        <svg class="timer-svg" viewBox="0 0 80 80">
+          <circle class="timer-track" cx="40" cy="40" r="34"/>
+          <circle class="timer-fill" id="timerCircle" cx="40" cy="40" r="34"
+            stroke-dasharray="213.6" stroke-dashoffset="0"/>
+        </svg>
+        <div class="timer-number" id="timerNumber">15</div>
+      </div>
+
+      <div class="player-panel player-right" id="panelP2">
+        <div class="player-info text-right">
+          <div class="player-name" id="gameName2">Jogador 2</div>
+          <div class="player-score" id="gameScore2">0</div>
+        </div>
+        <div class="player-avatar-wrap">
+          <div class="player-avatar" id="gameAvatar2">🦸</div>
+          <div class="answered-badge hidden" id="badge2">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de Progresso -->
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progressBar" style="width: 10%"></div>
+      <span class="progress-label" id="progressLabel">Pergunta 1 de 10</span>
+    </div>
+
+    <!-- Barra de Metadados: Categoria, Combo e Botão Sair -->
+    <div class="game-meta-row">
+      <div class="category-badge" id="categoryBadge">📚 Cultura Geral</div>
+      <div class="combo-badge hidden" id="comboBadge">🔥 COMBO x2</div>
+      <button class="btn-quit-match" onclick="App.confirmQuitMatch()" title="Abandonar partida">✕ Sair</button>
+    </div>
+
+    <!-- Cartão da Pergunta -->
+    <div class="question-card" id="questionCard">
+      <div class="question-text" id="questionText">Carregando pergunta...</div>
+    </div>
+
+    <!-- Botões de Resposta -->
+    <div class="answers-grid" id="answersGrid">
+      <button class="answer-btn" id="answerA" onclick="App.selectAnswer(0)">
+        <span class="answer-letter">A</span>
+        <span class="answer-text" id="answerTextA">—</span>
+        <span class="answer-key pc-only">1</span>
+      </button>
+      <button class="answer-btn" id="answerB" onclick="App.selectAnswer(1)">
+        <span class="answer-letter">B</span>
+        <span class="answer-text" id="answerTextB">—</span>
+        <span class="answer-key pc-only">2</span>
+      </button>
+      <button class="answer-btn" id="answerC" onclick="App.selectAnswer(2)">
+        <span class="answer-letter">C</span>
+        <span class="answer-text" id="answerTextC">—</span>
+        <span class="answer-key pc-only">3</span>
+      </button>
+      <button class="answer-btn" id="answerD" onclick="App.selectAnswer(3)">
+        <span class="answer-letter">D</span>
+        <span class="answer-text" id="answerTextD">—</span>
+        <span class="answer-key pc-only">4</span>
+      </button>
+    </div>
+
+    <!-- Overlay de Feedback -->
+    <div class="feedback-overlay hidden" id="feedbackOverlay">
+      <div class="feedback-box" id="feedbackBox">
+        <div class="feedback-icon" id="feedbackIcon">✅</div>
+        <div class="feedback-title" id="feedbackTitle">ACERTO!</div>
+        <div class="feedback-points" id="feedbackPoints">+15 pts</div>
+        <div class="feedback-correct" id="feedbackCorrect"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ TELA: RESULTADO FINAL ═══════════════ -->
+  <div id="screen-result" class="screen">
+    <div class="result-bg"></div>
+    <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+    <div class="result-content">
+      <div class="result-trophy" id="resultTrophy">🏆</div>
+      <div class="result-title" id="resultTitle">VITÓRIA!</div>
+      <div class="result-subtitle" id="resultSubtitle">Parabéns pelo desempenho!</div>
+
+      <div class="result-players">
+        <div class="result-player winner" id="resultWinner">
+          <div class="result-crown">👑</div>
+          <div class="result-avatar" id="resultWinnerAvatar">🧙</div>
+          <div class="result-player-name" id="resultWinnerName">Jogador 1</div>
+          <div class="result-player-score" id="resultWinnerScore">120</div>
+          <div class="result-stats">
+            <span id="resultWinnerCorrect">✅ 0 acertos</span>
+            <span id="resultWinnerWrong">❌ 0 erros</span>
+            <span id="resultWinnerAvgTime">⚡ 0s médio</span>
+          </div>
+        </div>
+
+        <div class="result-player loser" id="resultLoser">
+          <div class="result-avatar" id="resultLoserAvatar">🦸</div>
+          <div class="result-player-name" id="resultLoserName">Jogador 2</div>
+          <div class="result-player-score" id="resultLoserScore">80</div>
+          <div class="result-stats">
+            <span id="resultLoserCorrect">✅ 0 acertos</span>
+            <span id="resultLoserWrong">❌ 0 erros</span>
+            <span id="resultLoserAvgTime">⚡ 0s médio</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-buttons">
+        <button class="btn-primary" id="btnPlayAgain" onclick="App.playAgain()">
+          🔄 Jogar Novamente
+        </button>
+        <button class="btn-ghost" onclick="App.backToMenu()">
+          🏠 Menu Principal
+        </button>
+      </div>
+      <div class="rematch-status hidden" id="rematchStatus">
+        <div class="waiting-dots"><span></span><span></span><span></span></div>
+        <span>Aguardando adversário...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast de Notificação -->
+  <div class="toast hidden" id="toast"></div>
+
+  <!-- Socket.IO Client via CDN limpo e universal -->
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="app.js?v=3.2"></script>
+</body>
+</html>
