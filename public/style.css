@@ -1289,12 +1289,8 @@ html, body {
 
 @media (min-width: 900px) {
   #screen-game {
-    display: grid;
-    grid-template-rows: auto auto auto 1fr auto;
-    max-width: 680px;
+    max-width: 760px;
     margin: 0 auto;
-    height: 100%;
-    overflow-y: auto;
   }
 }
 
@@ -2286,48 +2282,133 @@ body {
     min-height: 100%;
   }
 
+  /* ─── Arena de Batalha no PC / Desktop ─── */
   #screen-game {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    max-width: 820px;
+    justify-content: center;
+    max-width: 860px;
     margin: 0 auto;
     width: 100%;
     height: 100%;
     min-height: 100%;
-    padding: 0 0 24px 0;
+    padding: 20px 24px 28px;
     box-sizing: border-box;
+    gap: 14px;
+    overflow-y: auto;
   }
 
+  .game-header {
+    padding: 16px 28px;
+    background: rgba(15, 23, 42, 0.65);
+    border-radius: 20px;
+    border: 1px solid rgba(74, 126, 247, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+  .player-avatar {
+    width: 58px;
+    height: 58px;
+    font-size: 30px;
+  }
+  .player-name {
+    font-size: 16px;
+    max-width: 160px;
+  }
+  .player-score {
+    font-size: 28px;
+  }
+  .timer-wrap, .timer-svg {
+    width: 74px;
+    height: 74px;
+  }
+  .timer-number {
+    font-size: 24px;
+  }
+
+  .progress-bar-wrap {
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    height: 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .progress-label {
+    top: -20px;
+    right: 4px;
+    font-size: 12px;
+  }
+
+  .game-meta-row {
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 4px;
+    flex-shrink: 0;
+  }
+
+  /* Cartão da Pergunta: elegante, bem proporcionado e sem esticar a tela */
   .question-card {
-    flex: 1;
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 32px 28px;
-    margin: 16px 24px 20px;
-    min-height: 160px;
+    width: 100%;
+    max-width: 860px;
+    min-height: 130px;
+    max-height: 220px;
+    padding: 24px 36px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(74, 126, 247, 0.3);
   }
   .question-text {
-    font-size: 22px;
-    line-height: 1.5;
+    font-size: 23px;
+    line-height: 1.45;
+    font-weight: 800;
   }
 
-  /* Grid 2x2 para PC com visual de arena */
+  /* Grid 2x2 para PC com visual de arena de e-sports */
   .answers-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px;
-    padding: 0 24px 10px;
+    padding: 0;
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
     flex-shrink: 0;
   }
   .answer-btn {
-    min-height: 70px;
+    min-height: 74px;
     font-size: 16px;
     padding: 16px 20px;
+    border-radius: 16px;
+  }
+  .answer-letter {
+    min-width: 36px;
+    height: 36px;
+    font-size: 16px;
   }
   .answer-key {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+    height: 26px;
+    padding: 0 6px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--gold);
+    margin-left: auto;
   }
 }
 
