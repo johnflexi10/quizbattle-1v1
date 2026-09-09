@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=3.4">
+  <link rel="stylesheet" href="style.css?v=3.5">
 </head>
 <body>
 
@@ -464,14 +464,21 @@
     <!-- Barra de Progresso -->
     <div class="progress-bar-wrap">
       <div class="progress-bar" id="progressBar" style="width: 10%"></div>
-      <span class="progress-label" id="progressLabel">Pergunta 1 de 10</span>
     </div>
 
-    <!-- Barra de Metadados: Categoria, Combo e Botão Sair -->
+    <!-- Barra de Metadados: Rodada, Categoria, Combo e Botão Sair -->
     <div class="game-meta-row">
-      <div class="category-badge" id="categoryBadge">📚 Cultura Geral</div>
-      <div class="combo-badge hidden" id="comboBadge">🔥 COMBO x2</div>
-      <button class="btn-quit-match" onclick="App.confirmQuitMatch()" title="Abandonar partida">✕ Sair</button>
+      <div class="meta-left">
+        <span class="round-badge" id="progressLabel">1/10</span>
+        <span class="category-badge" id="categoryBadge">📚 Cultura Geral</span>
+      </div>
+      <div class="meta-right">
+        <span class="combo-badge hidden" id="comboBadge">🔥 COMBO x2</span>
+        <button class="btn-quit-match" onclick="App.confirmQuitMatch()" title="Abandonar partida">
+          <span class="quit-icon">✕</span>
+          <span class="quit-label pc-only">Sair</span>
+        </button>
+      </div>
     </div>
 
     <!-- Cartão da Pergunta -->
@@ -568,6 +575,6 @@
 
   <!-- Socket.IO Client via CDN limpo e universal -->
   <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
-  <script src="app.js?v=3.4"></script>
+  <script src="app.js?v=3.5"></script>
 </body>
 </html>

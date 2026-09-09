@@ -725,7 +725,7 @@ function renderQuestion(data) {
   // Progress
   const pct = (data.round / data.totalRounds) * 100;
   $('progressBar').style.width = pct + '%';
-  $('progressLabel').textContent = `Pergunta ${data.round} de ${data.totalRounds}`;
+  $('progressLabel').textContent = `${data.round}/${data.totalRounds}`;
 
   const catIcons = {
     'Cotidiano & Casa': '🏠',

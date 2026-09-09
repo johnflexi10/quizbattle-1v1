@@ -907,44 +907,19 @@ html, body {
 }
 
 /* Progress Bar */
+/* Progress Bar */
 .progress-bar-wrap {
-  height: 6px;
-  background: rgba(255,255,255,0.1);
+  height: 4px;
+  background: rgba(255,255,255,0.08);
   position: relative;
   margin: 0;
+  width: 100%;
 }
 .progress-bar {
   height: 100%;
   background: linear-gradient(90deg, var(--accent), var(--gold));
   transition: width 0.5s ease;
-  border-radius: 0 3px 3px 0;
-}
-.progress-label {
-  position: absolute;
-  right: 12px;
-  top: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text-soft);
-}
-
-/* Categoria */
-.category-badge {
-  display: inline-block;
-  margin: 12px auto 0;
-  padding: 5px 14px;
-  background: rgba(74, 126, 247, 0.2);
-  border: 1px solid rgba(74, 126, 247, 0.5);
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--accent2);
-  text-align: center;
-  width: calc(100% - 32px);
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+  border-radius: 0 2px 2px 0;
 }
 
 /* Cartão da Pergunta */
@@ -2333,14 +2308,9 @@ body {
     max-width: 860px;
     width: 100%;
     margin: 0 auto;
-    height: 8px;
+    height: 6px;
     border-radius: 4px;
     flex-shrink: 0;
-  }
-  .progress-label {
-    top: -20px;
-    right: 4px;
-    font-size: 12px;
   }
 
   .game-meta-row {
@@ -2547,31 +2517,71 @@ body {
   box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5);
 }
 
-/* ─── Barra de Metadados, Combo e Sair do Jogo ───────────── */
+/* ─── Barra de Metadados, Rodada, Combo e Sair do Jogo ───────────── */
 .game-meta-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   max-width: 600px;
-  padding: 0 12px;
-  margin: 8px auto 0;
+  padding: 0 14px;
+  margin: 8px auto 4px;
   gap: 8px;
+  box-sizing: border-box;
 }
-.game-meta-row .category-badge {
-  margin: 0;
+.meta-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+.meta-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.round-badge {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 900;
+  padding: 4px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+.category-badge {
+  background: rgba(74, 126, 247, 0.2);
+  border: 1px solid rgba(74, 126, 247, 0.45);
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent2);
+  padding: 4px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  min-width: 0;
+  display: inline-block;
 }
 .combo-badge {
   background: linear-gradient(135deg, #ff6b35, #f72585);
   color: #ffffff;
   font-size: 11px;
   font-weight: 900;
-  letter-spacing: 0.5px;
-  padding: 4px 10px;
-  border-radius: 20px;
-  box-shadow: 0 0 15px rgba(255, 107, 53, 0.6);
+  letter-spacing: 0.3px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 107, 53, 0.5);
   animation: comboPulse 0.5s ease-in-out infinite alternate;
   text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 @keyframes comboPulse {
   from { transform: scale(1); filter: brightness(1); }
@@ -2581,18 +2591,30 @@ body {
   background: rgba(255, 59, 48, 0.15);
   border: 1px solid rgba(255, 59, 48, 0.4);
   color: #ff8080;
-  border-radius: 20px;
-  padding: 4px 10px;
-  font-size: 12px;
-  font-weight: 700;
+  border-radius: 12px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 800;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
   transition: var(--trans);
+  flex-shrink: 0;
 }
 .btn-quit-match:hover {
   background: rgba(255, 59, 48, 0.3);
   color: #fff;
   border-color: #ff3b30;
   transform: scale(1.05);
+}
+.quit-icon {
+  font-size: 12px;
+  line-height: 1;
+}
+.quit-label {
+  font-size: 11px;
 }
 
 /* ─── Canvas de Confetes na Vitória ──────────────────────── */
