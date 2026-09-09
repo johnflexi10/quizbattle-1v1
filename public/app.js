@@ -763,6 +763,7 @@ function renderQuestion(data) {
   btns.forEach((btn, i) => {
     btn.disabled = false;
     btn.className = 'answer-btn';
+    btn.removeAttribute('style');
     btn.querySelector('.answer-text').textContent = data.options[i];
     btn.querySelector('.answer-letter').textContent = ANSWER_LETTERS[i];
   });
@@ -796,6 +797,8 @@ function revealAnswers(correctIndex, mySelectedIndex) {
   const btns = ANSWER_IDS.map(id => $(id));
   btns.forEach((btn, i) => {
     btn.disabled = true;
+    btn.classList.remove('selected');
+    btn.removeAttribute('style');
     if (i === correctIndex) {
       btn.classList.add('correct');
     } else if (i === mySelectedIndex && i !== correctIndex) {
@@ -1393,9 +1396,7 @@ const App = {
     ANSWER_IDS.forEach((id, i) => {
       const btn = $(id);
       if (i === index) {
-        btn.style.transform = 'scale(0.97)';
-        btn.style.border    = '2px solid var(--gold)';
-        btn.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.5)';
+        btn.classList.add('selected');
       } else {
         btn.classList.add('dimmed');
       }
