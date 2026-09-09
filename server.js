@@ -78,6 +78,7 @@ function createRoom(code, customSettings = {}, hostSocketId = null) {
     },
     players: [], // [{id, name, avatar, score, isReady, isHost, totalCorrect, totalWrong, totalTime}]
     questions: [],
+    usedQuestionIds: new Set(),
     currentRound: 0,
     phase: 'waiting', // waiting | starting | question | result | finished
     timer: null,
@@ -107,7 +108,7 @@ function shuffleArray(arr) {
   return a;
 }
 
-function selectQuestions(settings = {}) {
+function selectQuestions(settings = {}, excludeIds = []) {
   let pool = [...allQuestions];
 
   // Filtro de categorias se especificado
@@ -126,20 +127,41 @@ function selectQuestions(settings = {}) {
     }
   }
 
-  const shuffled = shuffleArray(pool);
   const needed = settings.totalRounds || DEFAULT_ROUNDS;
+  const excludeSet = new Set(excludeIds || []);
 
-  if (shuffled.length >= needed) {
-    return shuffled.slice(0, needed);
-  } else {
-    // Se a seleção filtrada for menor que o número de rodadas pedido, complementa sem quebrar
-    const result = [...shuffled];
-    const remaining = shuffleArray(allQuestions.filter(q => !result.some(r => r.id === q.id)));
-    while (result.length < needed && remaining.length > 0) {
-      result.push(remaining.pop());
+  // Priorizar perguntas que ainda NÃO foram jogadas
+  const unplayed = pool.filter(q => !excludeSet.has(q.id));
+
+  let selected = [];
+  if (unplayed.length >= needed) {
+    // Temos perguntas não vistas suficientes: 100% novas garantidas!
+    selected = shuffleArray(unplayed).slice(0, needed);
+  } else if (unplayed.length > 0) {
+    // Pega todas as não vistas e completa com as menos recentes do pool
+    selected = shuffleArray(unplayed);
+    const seen = shuffleArray(pool.filter(q => excludeSet.has(q.id)));
+    for (const q of seen) {
+      if (selected.length >= needed) break;
+      if (!selected.some(s => s.id === q.id)) {
+        selected.push(q);
+      }
     }
-    return result.slice(0, needed);
+  } else {
+    // O jogador já viu todas as perguntas disponíveis desta categoria/dificuldade:
+    // Reinicia o ciclo embaralhando todo o pool filtrado
+    selected = shuffleArray(pool).slice(0, needed);
   }
+
+  // Complemento de segurança se o pool selecionado for menor que needed
+  if (selected.length < needed) {
+    const remaining = shuffleArray(allQuestions.filter(q => !selected.some(r => r.id === q.id)));
+    while (selected.length < needed && remaining.length > 0) {
+      selected.push(remaining.pop());
+    }
+  }
+
+  return selected.slice(0, needed);
 }
 
 function getAvatarIndex(name) {
@@ -225,6 +247,7 @@ function startRound(room) {
 
   const q = room.questions[room.currentRound];
   const questionData = {
+    id: q.id,
     round: room.currentRound + 1,
     totalRounds,
     question: q.question,
@@ -348,7 +371,7 @@ function removeFromMatchmaking(socketId) {
 }
 
 // ─── Funções de Sala ───────────────────────────────────────────────────────
-function joinRoom(socket, room, playerName, customAvatar = null) {
+function joinRoom(socket, room, playerName, customAvatar = null, seenQuestions = []) {
   if (room.players.length >= 2) {
     socket.emit('error', { message: 'Sala cheia!' });
     return false;
@@ -369,6 +392,7 @@ function joinRoom(socket, room, playerName, customAvatar = null) {
     totalTime: 0,
     isReady: isHost, // Host já começa pronto
     isHost,
+    seenQuestions: Array.isArray(seenQuestions) ? seenQuestions : [],
   };
 
   room.players.push(player);
@@ -381,7 +405,16 @@ function joinRoom(socket, room, playerName, customAvatar = null) {
 function startGameMatch(room) {
   if (room.players.length !== 2 || room.phase !== 'waiting') return;
 
-  room.questions = selectQuestions(room.settings);
+  const allSeen = [];
+  for (const p of room.players) {
+    if (p.seenQuestions && Array.isArray(p.seenQuestions)) {
+      allSeen.push(...p.seenQuestions);
+    }
+  }
+  const exclude = [...new Set([...(room.usedQuestionIds || []), ...allSeen])];
+  room.questions = selectQuestions(room.settings, exclude);
+  if (!room.usedQuestionIds) room.usedQuestionIds = new Set();
+  room.questions.forEach(q => room.usedQuestionIds.add(q.id));
   room.phase = 'starting';
 
   const gameStart = {
@@ -491,13 +524,13 @@ io.on('connection', (socket) => {
   });
 
   // ── Criar Sala Customizada ──
-  socket.on('create_custom_room', ({ playerName, avatar, settings }) => {
+  socket.on('create_custom_room', ({ playerName, avatar, settings, seenQuestions }) => {
     if (!playerName || typeof playerName !== 'string') return;
     const code = generateRoomCode();
     const room = createRoom(code, settings || {}, socket.id);
     rooms.set(code, room);
 
-    joinRoom(socket, room, playerName, avatar);
+    joinRoom(socket, room, playerName, avatar, seenQuestions);
     socket.emit('room_created', {
       code,
       player: room.players[0],
@@ -510,13 +543,13 @@ io.on('connection', (socket) => {
   });
 
   // ── Criar Sala Básica (Retrocompatibilidade) ──
-  socket.on('create_room', ({ playerName, avatar }) => {
+  socket.on('create_room', ({ playerName, avatar, seenQuestions }) => {
     if (!playerName || typeof playerName !== 'string') return;
     const code = generateRoomCode();
     const room = createRoom(code, {}, socket.id);
     rooms.set(code, room);
 
-    joinRoom(socket, room, playerName, avatar);
+    joinRoom(socket, room, playerName, avatar, seenQuestions);
     socket.emit('room_created', {
       code,
       player: room.players[0],
@@ -529,7 +562,7 @@ io.on('connection', (socket) => {
   });
 
   // ── Jogar vs Bot ──
-  socket.on('create_bot_game', ({ playerName, avatar, difficulty }) => {
+  socket.on('create_bot_game', ({ playerName, avatar, difficulty, seenQuestions }) => {
     if (!playerName || typeof playerName !== 'string') return;
     const diff = ['fácil', 'médio', 'difícil'].includes(difficulty) ? difficulty : 'médio';
 
@@ -543,13 +576,17 @@ io.on('connection', (socket) => {
     }, socket.id);
     rooms.set(code, room);
 
-    joinRoom(socket, room, playerName, avatar);
+    joinRoom(socket, room, playerName, avatar, seenQuestions);
     playerRoom.set(socket.id, code);
 
     const bot = addBotToRoom(room, diff);
     console.log(`[Bot] ${playerName} vs ${bot.name} (${diff}) — Sala: ${code}`);
 
-    room.questions = selectQuestions(room.settings);
+    const playerSeen = Array.isArray(seenQuestions) ? seenQuestions : [];
+    const exclude = [...new Set([...(room.usedQuestionIds || []), ...playerSeen])];
+    room.questions = selectQuestions(room.settings, exclude);
+    if (!room.usedQuestionIds) room.usedQuestionIds = new Set();
+    room.questions.forEach(q => room.usedQuestionIds.add(q.id));
     room.phase = 'starting';
 
     const gameStart = {
@@ -570,7 +607,7 @@ io.on('connection', (socket) => {
   });
 
   // ── Entrar em Sala ──
-  socket.on('join_room', ({ roomCode, playerName, avatar }) => {
+  socket.on('join_room', ({ roomCode, playerName, avatar, seenQuestions }) => {
     if (!playerName || !roomCode) return;
     const code = roomCode.toUpperCase().trim();
     const room = rooms.get(code);
@@ -592,7 +629,7 @@ io.on('connection', (socket) => {
       return;
     }
 
-    const ok = joinRoom(socket, room, playerName, avatar);
+    const ok = joinRoom(socket, room, playerName, avatar, seenQuestions);
     if (!ok) return;
 
     const me = room.players.find(p => p.id === socket.id);
@@ -661,10 +698,11 @@ io.on('connection', (socket) => {
   });
 
   // ── Matchmaking Rápido ──
-  socket.on('matchmaking', ({ playerName, avatar }) => {
+  socket.on('matchmaking', ({ playerName, avatar, seenQuestions }) => {
     if (!playerName) return;
     socket.data.playerName = playerName.slice(0, 20);
     socket.data.avatar = avatar;
+    socket.data.seenQuestions = Array.isArray(seenQuestions) ? seenQuestions : [];
 
     removeFromMatchmaking(socket.id);
 
@@ -687,8 +725,8 @@ io.on('connection', (socket) => {
       }, opponentSocket.id);
       rooms.set(code, room);
 
-      joinRoom(opponentSocket, room, opponentSocket.data.playerName || 'Jogador', opponentSocket.data.avatar);
-      joinRoom(socket, room, playerName, avatar);
+      joinRoom(opponentSocket, room, opponentSocket.data.playerName || 'Jogador', opponentSocket.data.avatar, opponentSocket.data.seenQuestions || []);
+      joinRoom(socket, room, playerName, avatar, socket.data.seenQuestions || []);
 
       const p1 = room.players[0];
       const p2 = room.players[1];
@@ -735,11 +773,16 @@ io.on('connection', (socket) => {
   });
 
   // ── Jogar Novamente (Rematch) ──
-  socket.on('play_again', () => {
+  socket.on('play_again', (data = {}) => {
     const code = playerRoom.get(socket.id);
     if (!code) return;
     const room = rooms.get(code);
     if (!room || room.phase !== 'finished') return;
+
+    if (data && Array.isArray(data.seenQuestions)) {
+      const p = room.players.find(x => x.id === socket.id);
+      if (p) p.seenQuestions = data.seenQuestions;
+    }
 
     if (!room.playAgainVotes) room.playAgainVotes = new Set();
     room.playAgainVotes.add(socket.id);
@@ -750,7 +793,18 @@ io.on('connection', (socket) => {
       room.currentRound = 0;
       room.phase = 'waiting';
       room.roundAnswers = {};
-      room.questions = selectQuestions(room.settings);
+
+      const allSeen = [];
+      for (const p of room.players) {
+        if (p.seenQuestions && Array.isArray(p.seenQuestions)) {
+          allSeen.push(...p.seenQuestions);
+        }
+      }
+      const exclude = [...new Set([...(room.usedQuestionIds || []), ...allSeen])];
+      room.questions = selectQuestions(room.settings, exclude);
+      if (!room.usedQuestionIds) room.usedQuestionIds = new Set();
+      room.questions.forEach(q => room.usedQuestionIds.add(q.id));
+
       for (const p of room.players) {
         p.score = 0;
         p.totalCorrect = 0;

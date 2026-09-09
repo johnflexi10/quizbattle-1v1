@@ -110,6 +110,34 @@ const Stats = {
   }
 };
 
+// ─── Rastreador Anti-Repetição de Perguntas ──────────────────────────────────
+const QuestionTracker = {
+  KEY: 'quizbattle_seen_qids_v1',
+  getSeenIds() {
+    try {
+      const raw = localStorage.getItem(this.KEY);
+      const arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) {
+      return [];
+    }
+  },
+  recordSeen(id) {
+    if (id === undefined || id === null) return;
+    try {
+      const seen = this.getSeenIds();
+      if (!seen.includes(id)) {
+        seen.push(id);
+        // O banco tem 450 perguntas. Se o jogador vir mais de 400, purga as mais antigas mantendo 150
+        if (seen.length > 400) {
+          seen.splice(0, seen.length - 150);
+        }
+        localStorage.setItem(this.KEY, JSON.stringify(seen));
+      }
+    } catch (e) {}
+  }
+};
+
 // ─── Efeito de Confetes na Vitória ───────────────────────────────────────────
 const Confetti = {
   canvas: null,
@@ -722,6 +750,11 @@ function renderQuestion(data) {
     $('gameScore2').textContent  = opp.score;
   }
 
+  // Registrar pergunta como vista para o sistema anti-repetição
+  if (data && data.id) {
+    QuestionTracker.recordSeen(data.id);
+  }
+
   // Progress
   const pct = (data.round / data.totalRounds) * 100;
   $('progressBar').style.width = pct + '%';
@@ -1113,6 +1146,7 @@ const App = {
       playerName: name,
       avatar: State.selectedAvatar,
       settings,
+      seenQuestions: QuestionTracker.getSeenIds(),
     });
 
     this.closeModal('modal-create-room');
@@ -1153,6 +1187,7 @@ const App = {
       roomCode: code,
       playerName: name,
       avatar: State.selectedAvatar,
+      seenQuestions: QuestionTracker.getSeenIds(),
     });
 
     this.closeModal('modal-public-rooms');
@@ -1186,6 +1221,7 @@ const App = {
       roomCode: code,
       playerName: name,
       avatar: State.selectedAvatar,
+      seenQuestions: QuestionTracker.getSeenIds(),
     });
 
     this.closeModal('modal-join');
@@ -1336,7 +1372,11 @@ const App = {
 
     connectSocket();
     State.myId = State.socket.id;
-    State.socket.emit('matchmaking', { playerName: name, avatar: State.selectedAvatar });
+    State.socket.emit('matchmaking', {
+      playerName: name,
+      avatar: State.selectedAvatar,
+      seenQuestions: QuestionTracker.getSeenIds(),
+    });
   },
 
   showBotModal() {
@@ -1359,6 +1399,7 @@ const App = {
         playerName: State.myName,
         avatar: State.selectedAvatar,
         difficulty,
+        seenQuestions: QuestionTracker.getSeenIds(),
       });
     };
     if (State.socket.connected) emit();
@@ -1402,7 +1443,11 @@ const App = {
 
   playAgain() {
     Sound.click();
-    if (State.socket) State.socket.emit('play_again');
+    if (State.socket) {
+      State.socket.emit('play_again', {
+        seenQuestions: QuestionTracker.getSeenIds(),
+      });
+    }
   },
 
   backToMenu() {
