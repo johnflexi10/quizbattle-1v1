@@ -540,7 +540,7 @@ function renderLobby() {
   $('lobbyPillTime').textContent = `⏱️ ${questionTime}s / perg.`;
   $('lobbyPillDiff').textContent = `🎯 Dif: ${diffLabel}`;
 
-  if (!settings.categories || settings.categories.length === 0 || settings.categories.length >= 13) {
+  if (!settings.categories || settings.categories.length === 0 || settings.categories.length >= 8) {
     $('lobbyPillCategories').textContent = '📚 Todas Categorias';
   } else if (settings.categories.length === 1) {
     $('lobbyPillCategories').textContent = `📚 ${settings.categories[0]}`;
@@ -648,7 +648,7 @@ function renderPublicRooms(roomsList) {
 
   container.innerHTML = roomsList.map(r => {
     const diff = r.difficulty === 'todas' ? 'Todas' : (r.difficulty.charAt(0).toUpperCase() + r.difficulty.slice(1));
-    const catsText = (!r.categories || r.categories.length === 0 || r.categories.length >= 13)
+    const catsText = (!r.categories || r.categories.length === 0 || r.categories.length >= 8)
       ? 'Todas Categorias'
       : (r.categories.length === 1 ? r.categories[0] : `${r.categories.length} Categorias`);
 
@@ -728,24 +728,14 @@ function renderQuestion(data) {
   $('progressLabel').textContent = `${data.round}/${data.totalRounds}`;
 
   const catIcons = {
-    'Cotidiano & Casa': '🏠',
-    'Comida & Culinária': '🍳',
-    'Saúde & Bem-Estar': '🩺',
-    'Tecnologia & Celular': '📱',
-    'Curiosidades & Costumes': '💡',
-    'Trabalho & Dinheiro': '💳',
-    'Trânsito & Cidade': '🚗',
-    'Geografia': '🌍',
-    'História': '🏛️',
-    'Português': '✍️',
-    'Matemática': '🔢',
-    'O Que É, O Que É?': '🧩',
-    'Variados & Pop': '🎭',
-    'Ciências': '🔬',
-    'Tecnologia': '💻',
-    'Esportes': '⚽',
-    'Entretenimento': '🎬',
-    'Cultura Geral': '💡',
+    'Futebol & Esportes': '⚽',
+    'Cinema & Séries': '🎬',
+    'Games & Tecnologia': '🎮',
+    'Música & Cultura Pop': '🎵',
+    'Geografia & Mundo': '🌍',
+    'História do Brasil & Mundo': '🏛️',
+    'Ciências & Natureza': '🔬',
+    'Conhecimentos Gerais': '💡'
   };
   const icon = catIcons[data.category] || '📚';
   $('categoryBadge').textContent = `${icon} ${data.category} · ${data.difficulty}`;
