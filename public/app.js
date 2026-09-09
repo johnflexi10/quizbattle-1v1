@@ -540,7 +540,7 @@ function renderLobby() {
   $('lobbyPillTime').textContent = `⏱️ ${questionTime}s / perg.`;
   $('lobbyPillDiff').textContent = `🎯 Dif: ${diffLabel}`;
 
-  if (!settings.categories || settings.categories.length === 0 || settings.categories.length >= 8) {
+  if (!settings.categories || settings.categories.length === 0 || settings.categories.length >= 9) {
     $('lobbyPillCategories').textContent = '📚 Todas Categorias';
   } else if (settings.categories.length === 1) {
     $('lobbyPillCategories').textContent = `📚 ${settings.categories[0]}`;
@@ -648,7 +648,7 @@ function renderPublicRooms(roomsList) {
 
   container.innerHTML = roomsList.map(r => {
     const diff = r.difficulty === 'todas' ? 'Todas' : (r.difficulty.charAt(0).toUpperCase() + r.difficulty.slice(1));
-    const catsText = (!r.categories || r.categories.length === 0 || r.categories.length >= 8)
+    const catsText = (!r.categories || r.categories.length === 0 || r.categories.length >= 9)
       ? 'Todas Categorias'
       : (r.categories.length === 1 ? r.categories[0] : `${r.categories.length} Categorias`);
 
@@ -735,7 +735,8 @@ function renderQuestion(data) {
     'Geografia & Mundo': '🌍',
     'História do Brasil & Mundo': '🏛️',
     'Ciências & Natureza': '🔬',
-    'Conhecimentos Gerais': '💡'
+    'Conhecimentos Gerais': '💡',
+    'Reino Animal': '🦁'
   };
   const icon = catIcons[data.category] || '📚';
   $('categoryBadge').textContent = `${icon} ${data.category} · ${data.difficulty}`;

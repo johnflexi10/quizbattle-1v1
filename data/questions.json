@@ -5198,5 +5198,655 @@
     ],
     "correct": 2,
     "id": 400
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual animal é conhecido por ter o pescoço mais longo do reino animal para alcançar as copas das árvores?",
+    "options": [
+      "Zebra",
+      "Elefante",
+      "Girafa",
+      "Camelo"
+    ],
+    "correct": 2,
+    "id": 401
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual é o maior felino nativo das Américas, famoso por sua mordida poderosa e manchas em forma de roseta?",
+    "options": [
+      "Puma / Suçuarana",
+      "Onça-pintada",
+      "Jaguatirica",
+      "Gato-do-mato"
+    ],
+    "correct": 1,
+    "id": 402
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual ave marinha vive no hemisfério sul, não consegue voar no ar, mas nada com extrema agilidade na água gelada?",
+    "options": [
+      "Gaivota",
+      "Pelicano",
+      "Pinguim",
+      "Albatroz"
+    ],
+    "correct": 2,
+    "id": 403
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Quantos corações tem um polvo para bombear seu sangue azulado pelo corpo?",
+    "options": [
+      "1 coração",
+      "2 corações",
+      "3 corações",
+      "4 corações"
+    ],
+    "correct": 2,
+    "id": 404
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual animal é o símbolo nacional da Austrália e carrega seus filhotes em uma bolsa chamada marsúpio?",
+    "options": [
+      "Coala",
+      "Canguru",
+      "Ornitorrinco",
+      "Dingo"
+    ],
+    "correct": 1,
+    "id": 405
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual mamífero terrestre é o mais lento do mundo, passando quase a vida toda pendurado em árvores na Amazônia?",
+    "options": [
+      "Coala",
+      "Bicho-preguiça",
+      "Lêmure",
+      "Tamanduá"
+    ],
+    "correct": 1,
+    "id": 406
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual pássaro minúsculo é a única ave capaz de voar para trás e bater as asas até 80 vezes por segundo?",
+    "options": [
+      "Canário",
+      "Beija-flor (Colibri)",
+      "Pardal",
+      "Andorinha"
+    ],
+    "correct": 1,
+    "id": 407
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual é a maior ave viva do planeta, originária da África, que não voa mas corre a mais de 60 km/h?",
+    "options": [
+      "Ema",
+      "Casuar",
+      "Avestruz",
+      "Condor"
+    ],
+    "correct": 2,
+    "id": 408
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual cobra venenosa brasileira tem um chocalho de anéis córneos na ponta da cauda para alertar intrusos?",
+    "options": [
+      "Jararaca",
+      "Cascavel",
+      "Coral-verdadeira",
+      "Sucuri"
+    ],
+    "correct": 1,
+    "id": 409
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual mamífero marinho inteligente respira por um orifício no topo da cabeça e é famoso por suas acrobacias e sociabilidade?",
+    "options": [
+      "Tubarão",
+      "Golfinho",
+      "Foca",
+      "Leão-marinho"
+    ],
+    "correct": 1,
+    "id": 410
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual mamífero australiano é famoso por botar ovos, ter bico semelhante ao de pato e cauda parecida com a de castor?",
+    "options": [
+      "Equidna",
+      "Diabo-da-tasmânia",
+      "Ornitorrinco",
+      "Wombat"
+    ],
+    "correct": 2,
+    "id": 411
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual é o animal terrestre com a gestação mais longa do mundo (cerca de 22 meses)?",
+    "options": [
+      "Rinoceronte",
+      "Girafa",
+      "Elefante",
+      "Hipopótamo"
+    ],
+    "correct": 2,
+    "id": 412
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual réptil semiaquático africano e herbívoro é considerado um dos animais mais territoriais e perigosos para humanos?",
+    "options": [
+      "Crocodilo-do-nilo",
+      "Hipopótamo",
+      "Búfalo-africano",
+      "Rinoceronte-negro"
+    ],
+    "correct": 1,
+    "id": 413
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual é o maior predador terrestre do Ártico, que possui pele preta para reter calor e pelos transparentes que parecem brancos?",
+    "options": [
+      "Urso-pardo",
+      "Lobo-do-ártico",
+      "Urso-polar",
+      "Morsa"
+    ],
+    "correct": 2,
+    "id": 414
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual primata é geneticamente mais próximo dos seres humanos, compartilhando quase 99% da sequência de DNA?",
+    "options": [
+      "Gorila",
+      "Orangotango",
+      "Chimpanzé",
+      "Babuíno"
+    ],
+    "correct": 2,
+    "id": 415
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual animal marinho tem formato peculiar de peça de xadrez e é o macho que carrega os ovos na bolsa e dá à luz?",
+    "options": [
+      "Peixe-palhaço",
+      "Cavalo-marinho",
+      "Dragão-do-mar",
+      "Estrela-do-mar"
+    ],
+    "correct": 1,
+    "id": 416
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual felino selvagem é o maior de todos em tamanho corporal, com pelagem alaranjada e listras escuras na Ásia?",
+    "options": [
+      "Leão",
+      "Leopardo",
+      "Tigre",
+      "Jaguar"
+    ],
+    "correct": 2,
+    "id": 417
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual primata brasileiro ameaçado de extinção é o símbolo da Mata Atlântica e estampa a cédula de 20 reais?",
+    "options": [
+      "Mico-leão-dourado",
+      "Macaco-prego",
+      "Muriqui",
+      "Uacari"
+    ],
+    "correct": 0,
+    "id": 418
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual é a cobra mais pesada e volumosa do mundo, habitando os pântanos e rios da bacia Amazônica e do Pantanal?",
+    "options": [
+      "Píton-real",
+      "Sucuri-verde (Anaconda)",
+      "Jiboia",
+      "Cobra-real"
+    ],
+    "correct": 1,
+    "id": 419
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual mamífero marinho carnívoro preto e branco é apelidado de 'Baleia Assassina', mas é na verdade da família dos golfinhos?",
+    "options": [
+      "Beluga",
+      "Narval",
+      "Orca",
+      "Cachalote"
+    ],
+    "correct": 2,
+    "id": 420
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual canídeo nativo do Cerrado brasileiro tem pernas longas e finas, pelos avermelhados e estampa a nota de 200 reais?",
+    "options": [
+      "Cachorro-do-mato",
+      "Raposa-do-campo",
+      "Lobo-guará",
+      "Graxaim"
+    ],
+    "correct": 2,
+    "id": 421
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual ave de rapina com visão aguçada e hábitos noturnos consegue girar o pescoço em até 270 graus sem mover o corpo?",
+    "options": [
+      "Águia",
+      "Falcão",
+      "Coruja",
+      "Gavião"
+    ],
+    "correct": 2,
+    "id": 422
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual animal invertebrado marinho é famoso por sua impressionante capacidade de regenerar braços inteiros que foram perdidos?",
+    "options": [
+      "Caranguejo",
+      "Estrela-do-mar",
+      "Lagosta",
+      "Ouriço-do-mar"
+    ],
+    "correct": 1,
+    "id": 423
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual é o maior peixe existente nos oceanos da Terra, que pode atingir 12 metros de comprimento e alimenta-se de plâncton?",
+    "options": [
+      "Tubarão-branco",
+      "Tubarão-baleia",
+      "Manta-gigante",
+      "Peixe-lua"
+    ],
+    "correct": 1,
+    "id": 424
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual animal brasileiro possui uma língua de até 60 cm e garras poderosas para abrir cupinzeiros e formigueiros?",
+    "options": [
+      "Tatu-bola",
+      "Tamanduá-bandeira",
+      "Capivara",
+      "Quati"
+    ],
+    "correct": 1,
+    "id": 425
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "difícil",
+    "question": "Qual é o animal que possui o maior olho de todo o reino animal (podendo atingir até 30 cm de diâmetro, como uma bola de basquete)?",
+    "options": [
+      "Baleia-azul",
+      "Lula-gigante / Lula-colossal",
+      "Tubarão-branco",
+      "Avestruz"
+    ],
+    "correct": 1,
+    "id": 426
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "difícil",
+    "question": "Qual pequena rã da América do Sul (Phyllobates terribilis) é considerada um dos animais mais venenosos do planeta?",
+    "options": [
+      "Rã-touro",
+      "Rã-arborícola",
+      "Rã-dardo-dourada",
+      "Perereca-verde"
+    ],
+    "correct": 2,
+    "id": 427
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "difícil",
+    "question": "Qual réptil gigante das ilhas do Pacífico e Sudeste Asiático é o maior lagarto vivo do mundo, com saliva cheia de bactérias e veneno?",
+    "options": [
+      "Monstro-de-gila",
+      "Varano-do-nilo",
+      "Dragão-de-komodo",
+      "Iguana-marinha"
+    ],
+    "correct": 2,
+    "id": 428
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "difícil",
+    "question": "Qual é o animal com a mordida mais potente já medida no reino animal terrestre, superando 3.700 libras de pressão?",
+    "options": [
+      "Tubarão-branco",
+      "Leão africano",
+      "Crocodilo-de-água-salgada",
+      "Hiena-malhada"
+    ],
+    "correct": 2,
+    "id": 429
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "difícil",
+    "question": "Qual animal marinho gelatinoso (Chironex fleckeri), encontrado no norte da Austrália, pode causar parada cardíaca em minutos com sua picada?",
+    "options": [
+      "Caravela-portuguesa",
+      "Vespa-do-mar (Água-viva-caixa)",
+      "Polvo-de-anéis-azuis",
+      "Peixe-pedra"
+    ],
+    "correct": 1,
+    "id": 430
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "difícil",
+    "question": "Qual espécie de tartaruga terrestre pode viver mais de 150 anos e inspirou Charles Darwin no arquipélago equatoriano?",
+    "options": [
+      "Tartaruga-de-aldebara",
+      "Tartaruga-gigante-de-galápagos",
+      "Tartaruga-leopardo",
+      "Tartaruga-de-pente"
+    ],
+    "correct": 1,
+    "id": 431
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "difícil",
+    "question": "Qual é a serpente venenosa mais longa do planeta Terra, atingindo mais de 5 metros de comprimento na Ásia?",
+    "options": [
+      "Mamba-negra",
+      "Taipan-do-interior",
+      "Cobra-real (Ophiophagus hannah)",
+      "Víbora-do-gabão"
+    ],
+    "correct": 2,
+    "id": 432
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "difícil",
+    "question": "Qual animal aquático tem a capacidade biológica de reverter suas células e é considerado 'biologicamente imortal'?",
+    "options": [
+      "Lagosta-americana",
+      "Água-viva Turritopsis dohrnii",
+      "Planária",
+      "Axolote"
+    ],
+    "correct": 1,
+    "id": 433
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "difícil",
+    "question": "Qual anfíbio salamandra mexicano é famoso por manter características larvais por toda a vida e regenerar órgãos complexos?",
+    "options": [
+      "Tritão",
+      "Axolote (Ambystoma mexicanum)",
+      "Proteu",
+      "Sirene"
+    ],
+    "correct": 1,
+    "id": 434
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "difícil",
+    "question": "Qual mamífero africano produz leite rosado e secreta um fluido avermelhado que funciona como protetor solar natural?",
+    "options": [
+      "Camelo",
+      "Hipopótamo",
+      "Zebra",
+      "Hiena"
+    ],
+    "correct": 1,
+    "id": 435
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual é o maior roedor vivo do mundo, muito comum em parques e rios do Brasil?",
+    "options": [
+      "Castor",
+      "Capivara",
+      "Paca",
+      "Cutia"
+    ],
+    "correct": 1,
+    "id": 436
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual ave brasileira colorida tem um bico enorme e alaranjado, mas surpreendentemente leve por ser oco?",
+    "options": [
+      "Arara",
+      "Papagaio",
+      "Tucano",
+      "Gavião"
+    ],
+    "correct": 2,
+    "id": 437
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual inseto social vive em colmeias com uma rainha, operárias e zangões, sendo essencial para a polinização?",
+    "options": [
+      "Vespa",
+      "Formiga",
+      "Abelha",
+      "Cupim"
+    ],
+    "correct": 2,
+    "id": 438
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual réptil tem uma carapaça dura, bota ovos na areia da praia e nada milhares de quilômetros pelos oceanos?",
+    "options": [
+      "Jacaré",
+      "Tartaruga marinha",
+      "Camaleão",
+      "Iguana"
+    ],
+    "correct": 1,
+    "id": 439
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual é o único felino selvagem que vive e caça em grupos sociais organizados chamados de coalizões ou alcateias?",
+    "options": [
+      "Tigre",
+      "Leão",
+      "Leopardo",
+      "Guepardo"
+    ],
+    "correct": 1,
+    "id": 440
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual animal marinho tem concha espiralada, oito braços com ventosas e dois tentáculos maiores para capturar presas?",
+    "options": [
+      "Lula",
+      "Polvo",
+      "Nautilus",
+      "Caramujo"
+    ],
+    "correct": 0,
+    "id": 441
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual mamífero australiano fofinho se alimenta quase exclusivamente de folhas tóxicas de eucalipto?",
+    "options": [
+      "Canguru",
+      "Coala",
+      "Dingo",
+      "Equidna"
+    ],
+    "correct": 1,
+    "id": 442
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual animal é famoso por construir represas de madeira em rios e ter dentes frontais alaranjados que crescem sem parar?",
+    "options": [
+      "Esquilo",
+      "Castor",
+      "Lontra",
+      "Marmota"
+    ],
+    "correct": 1,
+    "id": 443
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual aranha brasileira altamente agressiva tem o hábito de erguer as patas dianteiras quando ameaçada e não tece teias aéreas?",
+    "options": [
+      "Caranguejeira",
+      "Aranha-marrom",
+      "Aranha-armadeira",
+      "Viúva-negra"
+    ],
+    "correct": 2,
+    "id": 444
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual é o animal símbolo do bambu e da conservação ambiental, originário das florestas montanhosas da China?",
+    "options": [
+      "Panda-vermelho",
+      "Urso-polar",
+      "Urso-panda-gigante",
+      "Lêmure"
+    ],
+    "correct": 2,
+    "id": 445
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual pássaro preto é conhecido na ciência por sua extraordinária inteligência, memória facial e uso de ferramentas?",
+    "options": [
+      "Pombo",
+      "Corvo",
+      "Pardal",
+      "Gaivota"
+    ],
+    "correct": 1,
+    "id": 446
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual animal marinho tem corpo espinhoso e redondo, vive preso às pedras no fundo do mar e não possui olhos visíveis?",
+    "options": [
+      "Estrela-do-mar",
+      "Ouriço-do-mar",
+      "Esponja",
+      "Pepino-do-mar"
+    ],
+    "correct": 1,
+    "id": 447
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual mamífero carnívoro africano tem risadas características como forma de comunicação e maxilares capazes de triturar ossos?",
+    "options": [
+      "Chacal",
+      "Hiena-malhada",
+      "Cão-selvagem-africano",
+      "Suricato"
+    ],
+    "correct": 1,
+    "id": 448
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "fácil",
+    "question": "Qual peixe marinho de corpo achatado tem uma cauda longa equipada com um ferrão serrilhado venenoso?",
+    "options": [
+      "Tubarão",
+      "Arraia (Raia)",
+      "Enguia",
+      "Moreia"
+    ],
+    "correct": 1,
+    "id": 449
+  },
+  {
+    "category": "Reino Animal",
+    "difficulty": "médio",
+    "question": "Qual animal com carapaça articulada em placas é capaz de se enrolar completamente como uma bola perfeita quando atacado?",
+    "options": [
+      "Tatu-galinha",
+      "Tatu-bola",
+      "Pangolim",
+      "Tatu-canastra"
+    ],
+    "correct": 1,
+    "id": 450
   }
 ]
